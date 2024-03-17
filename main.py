@@ -42,8 +42,8 @@ def addcar():
     if request.method == 'POST':
         id = int(request.form["id"])
         name = request.form["name"]
-        year = int(request.form["year"])
-        price = float(request.form["price"])
+        year =  request.form["year"]
+        price =  request.form["price"]
         conn = connection()
         cursor = conn.cursor()
         cursor.execute("INSERT INTO dbo.TblCars (id, name, year, price) VALUES (?, ?, ?, ?)", id, name, year, price)
@@ -63,8 +63,8 @@ def updatecar(id):
         return render_template("addcar.html", car = cr[0])
     if request.method == 'POST':
         name = str(request.form["name"])
-        year = int(request.form["year"])
-        price = float(request.form["price"])
+        year = request.form["year"]
+        price = request.form["price"]
         cursor.execute("UPDATE dbo.TblCars SET name = ?, year = ?, price = ? WHERE id = ?", name, year, price, id)
         conn.commit()
         conn.close()
