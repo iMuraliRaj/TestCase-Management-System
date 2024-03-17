@@ -49,7 +49,7 @@ def addcar():
         cursor.execute("INSERT INTO dbo.TblCars (id, name, year, price) VALUES (?, ?, ?, ?)", id, name, year, price)
         conn.commit()
         conn.close()
-        return redirect('/')
+        return redirect('/carslist')
 @carsales.route('/updatecar/<int:id>',methods = ['GET','POST'])
 def updatecar(id):
     cr = []
@@ -68,7 +68,7 @@ def updatecar(id):
         cursor.execute("UPDATE dbo.TblCars SET name = ?, year = ?, price = ? WHERE id = ?", name, year, price, id)
         conn.commit()
         conn.close()
-        return redirect('/')
+        return redirect('/carslist')
 @carsales.route('/deletecar/<int:id>')
 def deletecar(id):
     conn = connection()
@@ -76,7 +76,7 @@ def deletecar(id):
     cursor.execute("DELETE FROM dbo.TblCars WHERE id = ?", id)
     conn.commit()
     conn.close()
-    return redirect('/')
+    return redirect('/carslist')
 
 if(__name__ == "__main__"):
     carsales.run(debug=True)
