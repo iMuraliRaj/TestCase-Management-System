@@ -23,6 +23,27 @@ def main():
     conn.close()
     return render_template("home.html", cars = cars)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @carsales.route("/carslist")
 def carslist():
     cars = []
@@ -33,6 +54,8 @@ def carslist():
         cars.append({"id": row[0], "name": row[1], "year": row[2], "price": row[3]})
     conn.close()
     return render_template("carslist.html", cars = cars)
+
+
 
 
 @carsales.route("/addcar", methods = ['GET','POST'])
@@ -50,6 +73,9 @@ def addcar():
         conn.commit()
         conn.close()
         return redirect('/carslist')
+    
+
+
 @carsales.route('/updatecar/<int:id>',methods = ['GET','POST'])
 def updatecar(id):
     cr = []

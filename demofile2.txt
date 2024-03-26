@@ -1,0 +1,1 @@
+update module_details set status='-1' where code='5'
