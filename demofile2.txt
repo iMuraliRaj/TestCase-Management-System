@@ -1,1 +1,1 @@
-update module_details set status='-1' where code='5'
+update module_details set status='-1' where code='3'6insert into module_details values('7','company setup','','1')7insert into module_details values('8','Federal','','1')8insert into module_details values('9','Login','','1')update module_details set modulename ='business setup' where code ='7'
